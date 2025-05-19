@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Profile</title>
+    <link rel="stylesheet" href="/public/css/styles.css">
+</head>
+<body>
+    <h1><%= user.username %>'s Profile</h1>
+
+    <h2>Posts</h2>
+    <div class="posts">
+        <% posts.forEach(post => { %>
+            <div class="post">
+                <p><%= post.content %></p>
+                <% if (post.media) { %>
+                    <img src="<%= post.media %>" alt="Post media">
+                <% } %>
+                <p><strong>Tags:</strong> <%= post.tags.join(", ") %></p>
+            </div>
+        <% }); %>
+    </div>
+
+    <a href="/">Back to Home</a>
+</body>
+</html>
